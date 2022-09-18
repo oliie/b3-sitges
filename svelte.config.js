@@ -8,6 +8,9 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		files: {
+			lib: 'src/lib'
+		},
 		adapter: adapter()
 	}
 };
