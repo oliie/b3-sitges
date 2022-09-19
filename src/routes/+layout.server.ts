@@ -1,4 +1,5 @@
 import type { Movie } from '$lib/types';
+import type { LayoutServerLoad } from './$types';
 import { initializeApp } from 'firebase/app';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
@@ -15,16 +16,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const load = async () => {
+export const load: LayoutServerLoad = async () => {
 	const querySnapshot = await getDocs(collection(db, 'movies'));
 	const movies: Movie[] = [];
 
 	querySnapshot.forEach((doc) => {
-		const { title, director, year } = doc.data({ serverTimestamps: 'none' });
+		const { title, director, year } = doc.data();
 		movies.push({ _id: doc.id, title, director, year });
 	});
 
-	console.log('[movies]', movies);
-
-	return { success: true, data: movies };
+	return { movies };
 };

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Movie } from '$lib/types';
-	export let data: { success: boolean; data: Movie[] } = <any>{};
-	console.log(data);
+	import type { LayoutServerData } from './$types';
+
+	export let data: LayoutServerData;
 </script>
 
 <nav>
 	<ul>
-		{#each data.data as { title }}
+		{#each data.movies as { title }}
 			<li>{title}</li>
 		{/each}
 	</ul>
