@@ -1,7 +1,7 @@
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
 import type { Movie } from '$lib/types';
 import type { LayoutServerLoad } from './$types';
-import { initializeApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDzWrXD81-b6aZR_izGcwa9gfizus7tJeU',
