@@ -1,6 +1,12 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
 	import Heading from '$lib/components/Heading.svelte';
+	import MovieList from '$lib/components/MovieList.svelte';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
+
+	$: console.log(data);
 </script>
 
 <Heading>I'm a heading from $lib!</Heading>
@@ -17,3 +23,7 @@
 		<button class="btn btn-secondary">Add movie</button>
 	</div>
 </form>
+
+<div class="divider" />
+
+<MovieList movies={data.movies} />

@@ -1,26 +1,17 @@
+import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { connect } from '$lib/services/firebase';
 import type { Actions } from '@sveltejs/kit';
-import { initializeApp } from 'firebase/app';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import type { PageServerLoad } from './$types';
+import type { Movie } from '$lib/types';
 
 export const actions: Actions = {
 	'add-movie': async ({ request }) => {
+		const { db } = connect();
 		const data = await request.formData();
 		const title = data.get('title');
 		const director = data.get('director');
 		const year = data.get('year')!;
 
-		const firebaseConfig = {
-			apiKey: 'AIzaSyDzWrXD81-b6aZR_izGcwa9gfizus7tJeU',
-			authDomain: 'kit-boilerplate.firebaseapp.com',
-			projectId: 'kit-boilerplate',
-			storageBucket: 'kit-boilerplate.appspot.com',
-			messagingSenderId: '38042958772',
-			appId: '1:38042958772:web:c78b78caee4f78a405d0e1',
-			measurementId: 'G-J1QVSF0KWG'
-		};
-
-		const app = initializeApp(firebaseConfig);
-		const db = getFirestore(app);
 		const docRef = await addDoc(collection(db, 'movies'), {
 			title,
 			director,
@@ -29,4 +20,18 @@ export const actions: Actions = {
 
 		console.log(docRef.id);
 	}
+};
+
+export const load: PageServerLoad = async () => {
+	const { db } = connect();
+
+	const querySnapshot = await getDocs(collection(db, 'movies'));
+	const movies: Movie[] = [];
+
+	querySnapshot.forEach((doc) => {
+		const { title, director, year } = doc.data();
+		movies.push({ _id: doc.id, title, director, year });
+	});
+
+	return { movies };
 };
