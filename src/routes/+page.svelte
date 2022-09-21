@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-	import Heading from '$lib/Heading.svelte';
+	import Heading from '$lib/components/Heading.svelte';
 </script>
 
 <Heading>I'm a heading from $lib!</Heading>
