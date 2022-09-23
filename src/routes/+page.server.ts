@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { connect } from '$lib/services/firebase';
 import type { Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
@@ -19,6 +19,12 @@ export const actions: Actions = {
 		});
 
 		console.log(docRef.id);
+	},
+	'delete-movie': async ({ url }) => {
+		const id = url.searchParams.get('_id');
+		const { db } = connect();
+
+		await deleteDoc(doc(db, 'movies', id!));
 	}
 };
 
