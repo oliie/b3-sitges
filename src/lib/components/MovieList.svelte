@@ -35,7 +35,7 @@
 					<td>{year}</td>
 					<td class="text-right">
 						<form method="post" action="?/delete-movie&_id={_id}" use:enhance>
-							<button class="btn btn-sm btn-outline btn-secondary">Ta bort</button>
+							<button class="btn btn-sm btn-outline btn-secondary">Remove</button>
 						</form>
 					</td>
 				</tr>

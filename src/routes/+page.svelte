@@ -7,16 +7,17 @@
 	export let data: PageServerData;
 </script>
 
-<Heading>I'm a heading from $lib!</Heading>
+<div class="flex flex-col items-center gap-8">
+	<Heading>SvelteKit 🚀 Tailwind</Heading>
 
-<h2 class="text-red-600">Welcome to SvelteKit</h2>
+	<a class="btn btn-secondary btn-outline" href="https://kit.svelte.dev">SvelteKit Docs &raquo;</a>
+</div>
 
-<p>
-	Visit <a class="text-secondary" href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<div class="divider" />
 
 <form method="post" action="?/add-movie" use:enhance>
 	<div class="w-1/3 mx-auto flex flex-col gap-2">
+		<div class="text-center text-3xl text-secondary">Add a movie</div>
 		<input type="text" name="title" placeholder="Title" class="input input-bordered w-full" />
 		<input type="text" name="director" placeholder="Director" class="input input-bordered w-full" />
 		<input type="text" name="year" placeholder="Year" class="input input-bordered w-full" />
