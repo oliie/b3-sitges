@@ -9,6 +9,7 @@ if (!getApps().length) {
 	app = initializeApp(FirebaseConfig);
 }
 
+// Used to expose services
 export const connect = () => {
 	const db = getFirestore(app);
 
