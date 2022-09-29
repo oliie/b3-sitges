@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { currentMovie } from '$lib/stores/current-movie';
-	import type { ActionData } from './$types';
+	import type { ActionData } from '.svelte-kit/types/src/routes/$types';
 
-	export let formResponse: ActionData;
+	export let formResponse: ActionData | any;
 
 	let posting = false;
 
@@ -76,7 +76,7 @@
 		/>
 
 		{#if formResponse?.incorrect}
-			<p class="text-red-500">Year is wrong format</p>
+			<p class="text-red-500 px-2 text-sm">Year is wrong format</p>
 		{/if}
 
 		<div class="grid {$currentMovie ? 'grid-cols-2' : 'grid-cols-1'} gap-2">

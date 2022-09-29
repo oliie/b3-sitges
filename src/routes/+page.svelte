@@ -5,7 +5,6 @@
 	import type { ActionData, PageServerData } from './$types';
 
 	export let data: PageServerData;
-
 	export let form: ActionData;
 </script>
 

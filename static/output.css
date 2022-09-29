@@ -2595,6 +2595,13 @@ html {
 .p-4 {
   padding: 1rem;
 }
+.p-2 {
+  padding: 0.5rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .text-center {
   text-align: center;
 }
@@ -2608,6 +2615,10 @@ html {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .text-indigo-500 {
   --tw-text-opacity: 1;
