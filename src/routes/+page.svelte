@@ -12,7 +12,7 @@
 	<title>SvelteKit 🚀 Tailwind</title>
 </svelte:head>
 
-<div class="text-center">
+<div class="text-center my-8">
 	<Heading>SvelteKit 🚀 Tailwind</Heading>
 </div>
 
