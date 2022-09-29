@@ -9,6 +9,10 @@
 	export let form: ActionData;
 </script>
 
+<svelte:head>
+	<title>SvelteKit 🚀 Tailwind</title>
+</svelte:head>
+
 <div class="flex flex-col items-center gap-8">
 	<Heading>SvelteKit 🚀 Tailwind</Heading>
 

@@ -42,7 +42,7 @@
 	on:submit={handleSubmit}
 	use:enhance
 >
-	<div class="w-1/3 mx-auto flex flex-col gap-2">
+	<div class="w-full md:w-1/3 mx-auto flex flex-col gap-2">
 		<h2 class="text-center text-3xl text-secondary">
 			{$currentMovie ? 'Edit movie' : 'Add movie'}
 		</h2>
