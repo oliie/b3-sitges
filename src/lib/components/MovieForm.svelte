@@ -6,11 +6,12 @@
 	export let formResponse: ActionData | any;
 
 	let posting = false;
+	let elForm: HTMLFormElement;
 
-	$: title = $currentMovie?.title || '';
-	$: director = $currentMovie?.director || '';
-	$: year = $currentMovie?.year || '';
-	$: _id = $currentMovie?._id || '';
+	let title = '';
+	let director = '';
+	let year = '';
+	let _id = '';
 
 	$: if ($currentMovie) {
 		title = $currentMovie.title;
@@ -19,24 +20,29 @@
 		_id = $currentMovie._id!;
 	}
 
+	const resetForm = () => {
+		elForm.reset();
+	};
+
 	$: if (formResponse?.success) {
-		title = '';
-		director = '';
-		year = '';
-		_id = '';
-		posting = false;
 		currentMovie.set(null);
+		posting = false;
+		resetForm();
 	}
 
 	$: if (formResponse?.incorrect) {
 		posting = false;
 	}
 
-	const handleCancel = () => currentMovie.set(null);
+	const handleCancel = () => {
+		currentMovie.set(null);
+		resetForm();
+	};
 	const handleSubmit = () => (posting = true);
 </script>
 
 <form
+	bind:this={elForm}
 	method="post"
 	action={$currentMovie ? '?/update-movie' : '?/add-movie'}
 	on:submit={handleSubmit}
