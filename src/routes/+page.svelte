@@ -12,7 +12,9 @@
 <div class="flex flex-col items-center gap-8">
 	<Heading>SvelteKit 🚀 Tailwind</Heading>
 
-	<a class="btn btn-secondary btn-outline" href="https://kit.svelte.dev">SvelteKit Docs &raquo;</a>
+	<a target="_blank" class="btn btn-secondary btn-outline" href="https://kit.svelte.dev">
+		SvelteKit Docs &raquo;
+	</a>
 </div>
 
 <div class="divider" />
