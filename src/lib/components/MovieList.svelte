@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { currentMovie } from '$lib/stores/current-movie';
 	import type { Movie } from '$lib/types';
 
 	export let movies: Movie[] = [];
 
 	const handleEdit = (movie: Movie) => {
-		// TODO: Create edit handler for form. Use a store? EventDispatcher?
-		console.log(movie);
+		currentMovie.set(movie);
 	};
 </script>
 
@@ -26,7 +26,7 @@
 				<tr>
 					<td class="w-1">
 						<button
-							on:click={() => handleEdit({ title, director, year })}
+							on:click={() => handleEdit({ title, director, year, _id })}
 							class="btn btn-ghost btn-sm btn-primary">🖋️</button
 						>
 					</td>

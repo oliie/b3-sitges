@@ -1,6 +1,6 @@
-import { addDoc, collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { connect } from '$lib/services/firebase';
-import type { Actions } from '@sveltejs/kit';
+import { invalid, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { Movie } from '$lib/types';
 
@@ -12,19 +12,39 @@ export const actions: Actions = {
 		const director = data.get('director');
 		const year = data.get('year')!;
 
-		const docRef = await addDoc(collection(db, 'movies'), {
-			title,
-			director,
-			year: +year
-		});
+		if (!(year as string).length || isNaN(+year)) {
+			return invalid(400, { year, incorrect: true });
+		}
 
-		console.log(docRef.id);
+		await addDoc(collection(db, 'movies'), { title, director, year: +year });
+
+		return { success: true };
 	},
+
 	'delete-movie': async ({ url }) => {
 		const id = url.searchParams.get('_id');
 		const { db } = connect();
 
 		await deleteDoc(doc(db, 'movies', id!));
+	},
+
+	'update-movie': async ({ request }) => {
+		const { db } = connect();
+		const data = await request.formData();
+		const _id = data.get('_id');
+		const title = data.get('title');
+		const director = data.get('director');
+		const year = data.get('year')!;
+
+		if (!(year as string).length || isNaN(+year)) {
+			return invalid(400, { year, incorrect: true });
+		}
+
+		const docRef = doc(db, 'movies', _id as string);
+
+		await updateDoc(docRef, { title, director, year });
+
+		return { success: true };
 	}
 };
 
