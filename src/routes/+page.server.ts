@@ -4,9 +4,10 @@ import { invalid, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { Movie } from '$lib/types';
 
+const { db } = connect();
+
 export const actions: Actions = {
 	'add-movie': async ({ request }) => {
-		const { db } = connect();
 		const data = await request.formData();
 		const title = data.get('title');
 		const director = data.get('director');
@@ -23,13 +24,11 @@ export const actions: Actions = {
 
 	'delete-movie': async ({ url }) => {
 		const id = url.searchParams.get('_id');
-		const { db } = connect();
 
 		await deleteDoc(doc(db, 'movies', id!));
 	},
 
 	'update-movie': async ({ request }) => {
-		const { db } = connect();
 		const data = await request.formData();
 		const _id = data.get('_id');
 		const title = data.get('title');
@@ -49,8 +48,6 @@ export const actions: Actions = {
 };
 
 export const load: PageServerLoad = async () => {
-	const { db } = connect();
-
 	const querySnapshot = await getDocs(collection(db, 'movies'));
 	const movies: Movie[] = [];
 
