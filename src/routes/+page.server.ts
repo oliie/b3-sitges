@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { connect } from '$lib/services/firebase';
-import { invalid, type Actions } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import { invalid } from '@sveltejs/kit';
+import type { Actions, PageServerLoad } from './$types';
 import type { Movie } from '$lib/types';
 
 const { db } = connect();
