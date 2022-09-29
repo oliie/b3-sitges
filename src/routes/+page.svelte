@@ -12,11 +12,38 @@
 	<title>SvelteKit 🚀 Tailwind</title>
 </svelte:head>
 
-<div class="flex flex-col items-center gap-8">
+<div class="text-center">
 	<Heading>SvelteKit 🚀 Tailwind</Heading>
+</div>
 
-	<a target="_blank" class="btn btn-primary btn-outline" href="https://kit.svelte.dev">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4">
+	<a
+		target="_blank"
+		class="btn btn-xs md:btn-sm btn-primary btn-outline"
+		href="https://kit.svelte.dev/docs/introduction"
+	>
 		SvelteKit Docs &raquo;
+	</a>
+	<a
+		target="_blank"
+		class="btn btn-xs md:btn-sm btn-primary btn-outline"
+		href="https://firebase.google.com/docs/build"
+	>
+		Firebase Docs &raquo;
+	</a>
+	<a
+		target="_blank"
+		class="btn btn-xs md:btn-sm btn-primary btn-outline"
+		href="https://tailwindcss.com/docs/installation"
+	>
+		Tailwind Docs &raquo;
+	</a>
+	<a
+		target="_blank"
+		class="btn btn-xs md:btn-sm btn-primary btn-outline"
+		href="https://daisyui.com/components/"
+	>
+		DaisyUI Docs &raquo;
 	</a>
 </div>
 
