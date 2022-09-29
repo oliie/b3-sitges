@@ -43,7 +43,7 @@
 	use:enhance
 >
 	<div class="w-full md:w-1/3 mx-auto flex flex-col gap-2">
-		<h2 class="text-center text-3xl text-secondary">
+		<h2 class="text-center text-3xl text-primary">
 			{$currentMovie ? 'Edit movie' : 'Add movie'}
 		</h2>
 
@@ -81,12 +81,12 @@
 
 		<div class="grid {$currentMovie ? 'grid-cols-2' : 'grid-cols-1'} gap-2">
 			{#if $currentMovie}
-				<button type="button" on:click={handleCancel} class="btn btn-secondary btn-outline">
+				<button type="button" on:click={handleCancel} class="btn btn-primary btn-outline">
 					Cancel
 				</button>
 			{/if}
 
-			<button type="submit" class="btn btn-secondary" disabled={posting}>
+			<button type="submit" class="btn btn-primary" disabled={posting}>
 				{#if posting}
 					Loading...
 				{:else}
