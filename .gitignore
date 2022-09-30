@@ -6,5 +6,5 @@ node_modules
 .env
 .env.*
 !.env.example
-/static/output.css
+# /static/output.css
 .vercel
