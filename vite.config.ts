@@ -3,9 +3,7 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [sveltekit()],
-	build: {
-		minify: true
-	}
+	assetsInclude: './static/output.css'
 };
 
 export default config;
