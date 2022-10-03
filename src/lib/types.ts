@@ -1,6 +1,6 @@
-export type Movie = {
+export type Answers = {
 	_id?: string;
-	title: string;
-	director: string;
-	year: number;
+	participants: [];
+	ideas: {};
+	optional: string;
 };

@@ -1,3 +1,7 @@
-<div class="container p-4 mx-auto">
+<script>
+	import Footer from '../lib/components/Footer/Footer.svelte'
+</script>
+<div class="">
 	<slot />
+	<Footer />
 </div>
