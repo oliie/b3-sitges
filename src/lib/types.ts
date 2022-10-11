@@ -1,6 +1,11 @@
-export type Answers = {
+export type Idea = {
+	idea: string,
+	contact: string
+}
+export type Answer = {
 	_id?: string;
-	participants: [];
-	ideas: {};
+	participants: string[];
+	ideas: Idea[]
 	optional: string;
 };
+

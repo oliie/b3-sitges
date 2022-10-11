@@ -5,34 +5,29 @@ const defaultData = {
 	ideas: [
 		{
 			idea: '',
-			placeholder: 'Vi tänker att...',
 			contact: ''
 		},
 		{
 			idea: '',
-			placeholder: 'Det vore najs...',
 			contact: ''
 		},
 		{
 			idea: '',
-			placeholder: 'Det vore kul att...',
 			contact: ''
 		},
 		{
 			idea: '',
-			placeholder: 'Vi borde...',
 			contact: ''
 		},
 		{
 			idea: '',
-			placeholder: 'Vi tycker absolut att...',
 			contact: ''
 		}
 	],
 	optional: ''
 }
 
-export const store = persistStore('data', defaultData)
+export const store = persistStore('storData', defaultData)
 /* const stored = browser ? window.localStorage.getItem('groupStore') ?? groupStore : groupStore;
 /* const test = browser ? window.localStorage.getItem('groupStorage') : null
 

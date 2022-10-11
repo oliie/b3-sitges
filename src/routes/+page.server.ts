@@ -1,10 +1,24 @@
 import { addDoc, collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { connect } from '$lib/services/firebase';
 import type { Actions } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import type { Movie } from '$lib/types';
+
 
 export const actions: Actions = {
+	'add-ideas': async ({ request }) => {
+		const { db } = connect();
+		const data = await request.formData();
+		const dataString = data.get('allData');
+		const parsedData= JSON.parse(dataString!.toString());
+		
+		if (!parsedData.optional) {
+			parsedData.optional = 'Ingenting är bra idag'
+		}
+
+		await addDoc(collection(db, 'b3-sitges'), { ...parsedData });
+	}
+};
+
+/* export const actions: Actions = {
 	'add-movie': async ({ request }) => {
 		const { db } = connect();
 		const data = await request.formData();
@@ -40,4 +54,4 @@ export const load: PageServerLoad = async () => {
 	});
 
 	return { movies };
-};
+}; */

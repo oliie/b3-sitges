@@ -1,9 +1,5 @@
 <script>
 	import logo from './coderight-logo-white.svg';
-	/* import { page } from '$app/stores';
-	import facebook from '../icons/icon_Facebook.svg';
-	import linkedin from '../icons/icon_LinkedIn.svg';
-	import instagram from '../icons/icon_Instagram.svg'; */
 </script>
 
 <div class="flex justify-center bg-black-coderight">
@@ -28,8 +24,12 @@
 						<strong class="text-accent-primary-coderight">Kontakt</strong>
 					</li>
 					<li>
-						<p>hello@coderight.se</p>
-						<p>08-410 143 40</p>
+						<p>Direktlinje Ivo: </p>
+						<p>0730 41 22 00</p>
+						<p class="mt-2">Direktlinje Nicklas: </p>
+						<p>0706 45 00 03</p>
+						<p class="mt-2">Ytterligare hjälp ring: </p>
+						<p>112</p>
 					</li>
 				</ul>
 			</div>
@@ -37,24 +37,25 @@
 				<nav>
 					<ul>
 						<li class="pt-4 pb-2 lg:pb-2">
-							<strong class="text-accent-primary-coderight">Gå till</strong>
+							<strong class="text-accent-primary-coderight">Länkar</strong>
 						</li>
 						<li>
-							<a class="hover:text-secondary-coderight-lighter" data-sveltekit:prefetch href="/"
-								>Start</a
+							<a	
+								target="_blank"
+								class="hover:text-secondary-coderight-lighter"
+								data-sveltekit:prefetch
+								href="https://netigate.se/ra/s.aspx?s=1086996X347883259X26336"
+								>Medarbetarundersökning</a
 							>
 						</li>
-					</ul>
-				</nav>
-			</div>
-			<div class="flex">
-				<nav>
-					<ul>
-						<li class="pt-4 pb-2 lg:pb-2">
-							<strong class="text-accent-primary-coderight">Kul att göra</strong>
-						</li>
 						<li>
-							<a class="hover:text-secondary-coderight" data-sveltekit:prefetch href="/">Sitges</a>
+							<a	
+								target="_blank"
+								class="hover:text-secondary-coderight-lighter"
+								data-sveltekit:prefetch
+								href="https://b3it.sharepoint.com/teams/Intranet/SitePages/Nu-lanseras-B3s-h%C3%A5llbarhetsutbildning.aspx"
+								>Hållbarhetsutbildning</a
+							>
 						</li>
 					</ul>
 				</nav>

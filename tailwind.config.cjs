@@ -18,7 +18,7 @@ module.exports = {
 				coderight: {
 				  /* lighter: "#91E7E7", */
 				  DEFAULT: "#58838C",
-				  /* darker: "#2EA1A4", */
+				  darker: "#46686D",
 				},
 			  },
 			  secondary: {
@@ -31,12 +31,14 @@ module.exports = {
 				// Red
 				coderight: {
 					DEFAULT: "#D97179",
+					darker: '#AD4B57',
 				},
 			  },
 			  "accent-secondary": {
 				// LightPink
 				coderight: {
 				  DEFAULT: "#D9B8B8",
+				  darker: '#BA9191',
 				},
 			  },
 			  black: {

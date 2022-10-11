@@ -4,34 +4,76 @@
 	import FormParticipants from '$lib/components/Forms/FormParticipants.svelte';
 	import FormQuestions from '$lib/components/Forms/FormQuestions.svelte';
 	import FormOptional from '$lib/components/Forms/FormOptional.svelte';
+	import { store } from '$lib/store/store';
+	import type { Answer, Idea } from '$lib/types';
 	/* import MovieList from '$lib/components/MovieList.svelte'; */
 	/* import type { PageServerData } from './$types'; */
 
-	export let data: PageServerData;
+	/* export let data: PageServerData; */
+	let errors: number = 0;
+	/* let missingParticipants = 'Du saknar deltagare' */
+	console.log($store.optional);
+	const handleSubmit = () => {
+		if (!$store.participants.length) {
+			errors++;
+			alert(`saknar deltagare: ', ${errors}`);
+		}
+
+		/* $store.ideas.forEach((item: Answer) => {
+			if (!item.ideas.length) {
+				errors++;
+				alert(`saknar ide: ', ${errors}`);
+			}
+		}); */
+		/* $store.optional.forEach((item: Answer) => {
+			console.log(item.optional);
+			if (!item.optional) {
+				errors++;
+				alert(`saknar optional: ', ${errors}`);
+			}
+		});
+		$store.ideas.forEach((item: Idea) => {
+			if (!item.idea || !item.contact) {
+				errors++;
+				alert(`saknar idea || contact: ', ${errors}`);
+			}
+		}); */
+		/* if (!errors) {
+			alert('POST to FB'); */
+			/* postToFirebase(); */ // Hur gör man med denna för att posta i FB???
+		/* } else {
+			alert('ERROR'); */
+			/* errorMessage = 'Du har inte fyllt i alla fält'; */
+		/* } */
+		
+	};
+
+	$: storeData = JSON.stringify($store);
 </script>
 
 <div>
 	<Hero />
 </div>
 <div class="flex justify-center mt-20 bg-white">
-	<FormParticipants />
+	<FormParticipants {errors} />
 </div>
-<div class="flex justify-center">
-	<FormQuestions />
-</div>
-<div class="flex justify-center bg-white">
-	<FormOptional />
-</div>
-
-<!-- <form method="post" action="?/add-movie" use:enhance>
-	<div class="w-1/3 mx-auto flex flex-col gap-2">
-		<div class="text-center text-3xl text-secondary">Add a movie</div>
-		<input type="text" name="title" placeholder="Title" class="input input-bordered w-full" />
-		<input type="text" name="director" placeholder="Director" class="input input-bordered w-full" />
-		<input type="text" name="year" placeholder="Year" class="input input-bordered w-full" />
-		<button class="btn btn-secondary">Add movie</button>
+<form on:submit={handleSubmit} method="post" action="?/add-ideas" use:enhance>
+	<div class="flex justify-center">
+		<FormQuestions />
 	</div>
-</form> -->
+	<div class="flex justify-center bg-white">
+		<FormOptional />
+	</div>
+	<div class="flex justify-center bg-white pb-20">
+		<input type="hidden" name="allData" bind:value={storeData} required />
+		<button
+		data-mdb-ripple="true"
+				data-mdb-ripple-color="light"
+			type="submit"
+			class="flex text-white border-none px-4 py-2 rounded-full bg-accent-secondary-coderight hover:bg-accent-secondary-coderight-darker font-semibold"
+			>Vi är klara, skicka in svaret!</button
+		>
+	</div>
+</form>
 
-
-<!-- <MovieList movies={data.movies} /> -->
+<!-- <h1>{storeData}</h1> -->
