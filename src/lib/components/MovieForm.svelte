@@ -38,6 +38,7 @@
 		currentMovie.set(null);
 		resetForm();
 	};
+
 	const handleSubmit = () => (posting = true);
 </script>
 
@@ -92,7 +93,7 @@
 				</button>
 			{/if}
 
-			<button type="submit" class="btn btn-primary" disabled={posting}>
+			<button id="post-movie" type="submit" class="btn btn-primary" disabled={posting}>
 				{#if posting}
 					Loading...
 				{:else}

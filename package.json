@@ -12,6 +12,12 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"dev:only": "vite dev",
+		"unit": "vitest",
+		"unit:ui": "vitest --ui",
+		"unit:coverage": "vitest run --coverage",
+		"e2e": "npx playwright test",
+		"e2e:debug": "npx playwright test --debug",
+		"e2e:generate": "npx playwright codegen localhost:5174",
 		"tailwind:watch": "cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/styles/input.css -o static/output.css -w",
 		"tailwind:build": "cross-env TAILWIND_MODE=build cross-env NODE_ENV=production postcss src/styles/input.css -o static/output.css"
 	},
@@ -19,8 +25,11 @@
 		"@playwright/test": "^1.25.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@testing-library/svelte": "^3.2.2",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
+		"@vitest/coverage-c8": "^0.24.1",
+		"@vitest/ui": "^0.24.1",
 		"concurrently": "^7.4.0",
 		"cross-env": "^7.0.3",
 		"daisyui": "^2.28.0",
@@ -28,6 +37,7 @@
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"firebase": "^9.10.0",
+		"jsdom": "^20.0.1",
 		"postcss-cli": "^10.0.0",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
@@ -36,7 +46,8 @@
 		"svelte-preprocess": "^4.10.6",
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.4",
-		"vite": "^3.1.0"
+		"vite": "^3.1.0",
+		"vitest": "^0.24.1"
 	},
 	"type": "module"
 }

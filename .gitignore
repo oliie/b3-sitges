@@ -8,3 +8,5 @@ node_modules
 !.env.example
 /static/output.css
 .vercel
+coverage
+.vscode
